@@ -4,8 +4,8 @@ pipeline {
     stages {
 
         stage('clean') {
-            agent {
-        docker { image ' maven:3.8.5-jdk-8-slim' }
+        agent {
+           docker { image 'maven:3.8.5-jdk-8-slim' }
     }
             steps {
             sh '''
@@ -16,7 +16,8 @@ pipeline {
 
 stage('validate') {
     agent {
-        docker { image ' maven:3.8.5-jdk-8-slim' }
+           docker { image 'maven:3.8.5-jdk-8-slim' }
+    }
             steps {
             sh '''
             mvn validate
@@ -26,7 +27,8 @@ stage('validate') {
 
 stage('compile') {
     agent {
-        docker { image ' maven:3.8.5-jdk-8-slim' }
+           docker { image 'maven:3.8.5-jdk-8-slim' }
+    }
             steps {
             sh '''
             mvn compile
@@ -36,7 +38,8 @@ stage('compile') {
 
 stage('test') {
     agent {
-        docker { image ' maven:3.8.5-jdk-8-slim' }
+           docker { image 'maven:3.8.5-jdk-8-slim' }
+    }
             steps {
             sh '''
             mvn test
@@ -46,7 +49,8 @@ stage('test') {
 
 stage('package') {
     agent {
-        docker { image ' maven:3.8.5-jdk-8-slim' }
+           docker { image 'maven:3.8.5-jdk-8-slim' }
+    }
             steps {
             sh '''
             mvn package
@@ -56,7 +60,8 @@ stage('package') {
 
      stage('verify') {
          agent {
-        docker { image ' maven:3.8.5-jdk-8-slim' }
+           docker { image 'maven:3.8.5-jdk-8-slim' }
+    }
             steps {
             sh '''
             mvn verify
@@ -66,7 +71,8 @@ stage('package') {
 
 stage('install') {
     agent {
-        docker { image ' maven:3.8.5-jdk-8-slim' }
+           docker { image 'maven:3.8.5-jdk-8-slim' }
+    }
             steps {
             sh '''
             mvn install
